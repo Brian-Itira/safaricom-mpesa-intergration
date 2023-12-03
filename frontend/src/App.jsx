@@ -15,7 +15,7 @@ const App = () => {
     e.preventDefault();
     try {
      
-      const response = await axios.post('https://5000-gigokomrade-safaricomte-cc888bocjja.ws-eu106.gitpod.io/token', {
+      const response = await axios.post('https://safaricom-testnet-server.vercel.app/token', {
         phone,
         amount,
       });
