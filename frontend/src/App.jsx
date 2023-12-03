@@ -1,35 +1,63 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import React, {useState} from 'react'
+
+import axios from 'axios'
+
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+
+  const [phone, setPhone] = useState('')
+  const [amount, setAmount] = useState('')
+
+
+  const payNow = async (e) => {
+
+    e.preventDefault();
+    try {
+     
+      const response = await axios.post('https://5000-gigokomrade-safaricomte-cc888bocjja.ws-eu106.gitpod.io/token', {
+        phone,
+        amount,
+      });
+
+      console.log('Payment response:', response.data);
+    } catch (error) {
+    
+      console.error('Error making payment:', error);
+    }
+  };
+
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    <form className='form'>
+      <h1>SAFARICOM <span className='mpesa-text'> M-PESA</span></h1>
+
+      <input
+      type='text'
+      placeholder='safaricom phone number'
+      value={phone}
+      onChange={(e) => setPhone(e.target.value)}
+      />
+
+     <input
+      type='number'
+      placeholder='Enter amount'
+      value={amount}
+      onChange={(e) => setAmount(e.target.value)}
+      />
+
+      <button onClick={payNow}>
+
+        PAY NOW
+
+      </button>
+    
+    </form>
     </>
   )
 }
 
 export default App
+
+
