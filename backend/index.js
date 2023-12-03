@@ -1,14 +1,16 @@
 const express = require("express");
- const app = express();
+const app = express();
 
- const tokenRoute = require("./routes/token")
+app.use(express.json());  
 
- app.use("/token", tokenRoute);
+const tokenRoute = require("./routes/token");
 
- app.listen(5000,() => {
-    console.log('the server is up')
- });
+app.use("/token", tokenRoute);
 
- app.get("/", (req, res) => {
-    res.send('safaricom intergration with Brian Itira')
- })
+app.listen(5000, () => {
+    console.log('The server is up');
+});
+
+app.get("/", (req, res) => {
+    res.send('Safaricom integration with Brian Itira');
+});

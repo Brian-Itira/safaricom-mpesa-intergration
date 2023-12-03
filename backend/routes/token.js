@@ -4,10 +4,10 @@ const router = express.Router();
 
 
 
-const {createToken} = require("../controllers/token")
+const {createToken, getStkPush} = require("../controllers/token")
 
 
-router.get("/", createToken)
+router.post("/", createToken, getStkPush)
 
 module.exports = router
 
