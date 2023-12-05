@@ -54,3 +54,20 @@ button:hover {
     max-width: 100%;
   }
 }
+
+.footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #333; /* Dark background color for the footer */
+  color: #fff;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+@media screen and (max-width: 600px) {
+  .footer {
+    position: static;
+  }
+}
+

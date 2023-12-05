@@ -54,6 +54,10 @@ const App = () => {
       </button>
     
     </form>
+
+    <div className='footer'>
+        <p>&copy; 2023 Brian Itira. All rights reserved.</p>
+      </div>
     </>
   )
 }
