@@ -1,9 +1,56 @@
-.mpesa-text{
-  color: green;
+/* App.css */
+
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5; /* Background color similar to M-PESA */
 }
 
-.form{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.form {
+  max-width: 400px;
+  margin: 50px auto;
+  background-color: #fff; /* White background similar to Safaricom */
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+h1 {
+  text-align: center;
+  color: #0080c6; /* Safaricom Blue */
+}
+
+.mpesa-text {
+  color: #28a745; /* M-PESA Green */
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #0080c6; /* Safaricom Blue */
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3; /* Slightly darker blue on hover */
+}
+
+/* Media Queries for Responsive Design */
+@media screen and (max-width: 600px) {
+  .form {
+    max-width: 100%;
+  }
 }
