@@ -52,12 +52,16 @@ const App = () => {
         PAY NOW
 
       </button>
+
+        <p>&copy; 2023 Brian Itira. All rights reserved.</p>
+  
     
     </form>
 
-    <div className='footer'>
-        <p>&copy; 2023 Brian Itira. All rights reserved.</p>
-      </div>
+    <p className='footer'>&copy; 2023 Brian Itira. All rights reserved.</p>
+
+
+  
     </>
   )
 }

@@ -57,17 +57,9 @@ button:hover {
 
 .footer {
   text-align: center;
-  padding: 10px;
-  background-color: #333; /* Dark background color for the footer */
-  color: #fff;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
+  margin-top: 20px; /* Adjust the margin as needed */
+  color: #888; /* Choose your preferred color */
+  font-size: 18px; /* Adjust the font size as needed */
 }
 
-@media screen and (max-width: 600px) {
-  .footer {
-    position: static;
-  }
-}
 
