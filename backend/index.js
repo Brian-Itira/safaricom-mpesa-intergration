@@ -4,22 +4,16 @@ const app = express();
 
 app.use(express.json());
 
-// Dynamic CORS setup
-const allowedOrigins = ['https://safaricom-mpesa-intergration-frontend.vercel.app'];
-const corsOptions = {
-  origin: function (origin, callback) {
-    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  }
-};
+// Allow all origins
+app.use(cors());
 
-app.use(cors(corsOptions));
-
-// Handle preflight requests
-app.options('*', cors(corsOptions));
+// Manually add CORS headers
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+  next();
+});
 
 const tokenRoute = require("./routes/token");
 app.use("/token", tokenRoute);

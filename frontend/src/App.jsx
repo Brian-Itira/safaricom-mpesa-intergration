@@ -16,7 +16,7 @@ const App = () => {
         body: JSON.stringify({ phone, amount }),
       });
 
-      const data = await response.json(); // Parse the JSON from the response
+      const data = await response.json();
       console.log('Payment response:', data);
     } catch (error) {
       console.error('Error making payment:', error);
