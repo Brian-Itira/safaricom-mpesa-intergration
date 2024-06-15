@@ -4,7 +4,9 @@ const app = express();
 
 
 app.use(express.json());  
-app.use(cors())
+app.use(cors({
+    origin: 'https://safaricom-mpesa-intergration-frontend.vercel.app/' // replace with your actual Vercel frontend URL
+  }));
 
 const tokenRoute = require("./routes/token");
 
