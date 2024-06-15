@@ -15,7 +15,7 @@ const App = () => {
     e.preventDefault();
     try {
      
-      const response = await axios.post('http://localhost:5000/token', {
+      const response = await axios.post('https://safaricom-mpesa-intergration-b-git-d7a5b3-brian-itiras-projects.vercel.app/', {
         phone,
         amount,
       });
