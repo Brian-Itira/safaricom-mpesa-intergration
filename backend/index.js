@@ -1,21 +1,33 @@
 const express = require("express");
-const cors = require("cors")
+const cors = require("cors");
 const app = express();
 
+app.use(express.json());
 
-app.use(express.json());  
-app.use(cors({
-    origin: 'https://safaricom-mpesa-intergration-frontend.vercel.app/' // replace with your actual Vercel frontend URL
-  }));
+// Dynamic CORS setup
+const allowedOrigins = ['https://safaricom-mpesa-intergration-frontend.vercel.app'];
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  }
+};
+
+app.use(cors(corsOptions));
+
+// Handle preflight requests
+app.options('*', cors(corsOptions));
 
 const tokenRoute = require("./routes/token");
-
 app.use("/token", tokenRoute);
 
 app.listen(5000, () => {
-    console.log('The server is up');
+  console.log('The server is up');
 });
 
 app.get("/", (req, res) => {
-    res.send('Safaricom integration with Brian Itira');
+  res.send('Safaricom integration with Brian Itira');
 });
