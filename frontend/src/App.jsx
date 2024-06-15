@@ -15,7 +15,7 @@ const App = () => {
     e.preventDefault();
     try {
      
-      const response = await axios.post('https://5000-gigokomrade-safaricomte-bgb8vvpob56.ws-eu107.gitpod.io/token', {
+      const response = await axios.post('http://localhost:5000/token', {
         phone,
         amount,
       });
