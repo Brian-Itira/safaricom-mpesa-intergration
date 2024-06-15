@@ -8,7 +8,7 @@ const App = () => {
   const payNow = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('https://localhost:5000/token', { // replace with your actual backend URL
+      const response = await fetch('http://localhost:5000/token', { // replace with your actual backend URL
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
