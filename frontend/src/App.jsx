@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 
-import axios from 'axios'
+
 
 import './App.css'
 
@@ -11,21 +11,23 @@ const App = () => {
 
 
   const payNow = async (e) => {
-
     e.preventDefault();
     try {
-     
-      const response = await axios.post('http://localhost:5000/token', {
-        phone,
-        amount,
+      const response = await fetch('http://localhost:5000/token', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ phone, amount }),
       });
-
-      console.log('Payment response:', response.data);
+  
+      const data = await response.json(); // Parse the JSON from the response
+      console.log('Payment response:', data);
     } catch (error) {
-    
       console.error('Error making payment:', error);
     }
   };
+  
 
 
   return (
