@@ -13,7 +13,7 @@ const App = () => {
   const payNow = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:5000/token', {
+      const response = await fetch('https://safaricom-mpesa-intergration-backend.vercel.app/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
